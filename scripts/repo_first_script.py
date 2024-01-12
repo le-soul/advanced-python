@@ -18,10 +18,10 @@ class FilteringClass:
         """
         filter by price
         """
-        return self.df[self.df["price"] > price]
+        return self.df[self.df["Price Starting With ($)"] < price]
 
 @click.command(short_help="Parser to import dataset")
-@click.option("-f", "--filename", require=True, help="File to import")
+@click.option("-f", "--filename", required=True, help="File to import")
 
 def main(filename):
     """
@@ -29,9 +29,8 @@ def main(filename):
     """
 
     df = pd.read_csv(filename)
-    import pdb;pdb.set_trace()
-
-    print(df.shape)
+    result = FilteringClass(df).filter_price(12)
+    print(result.shape)
 
 if __name__ == "__main__":
     main()
