@@ -1,6 +1,7 @@
 """
 Test filtering conditions
 """
+
 from scripts.repo_first_script import filter_all
 import unittest
 import pandas as pd 
@@ -15,5 +16,8 @@ class TestFilterAll(unittest.TestCase):
             'Price Starting With ($)': [10, 15, 20, 25],
         }
         self.df = pd.DataFrame(data)
+
+    def test_months(self):
+        filter_all()
 
 
