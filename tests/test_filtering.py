@@ -12,8 +12,8 @@ class TestFilterData(unittest.TestCase):
     def setUp(self):
         data = {
             'Publish Date (Month)': ['January', 'February', 'April', 'February'],
-            'Publish Date (Year)': [2020, 2021, 2019, 2022],
-            'Price Starting With ($)': [10, 15, 20, 25],
+            'Publish Date (Year)': [2010, 2008, 2002, 2005],
+            'Price Starting With ($)': [4.0, 7.0, 2.0, 10.0],
         }
         self.df = pd.DataFrame(data)
 
@@ -21,8 +21,8 @@ class TestFilterData(unittest.TestCase):
         """
         Test to see if the function filter by year
         """
-        self.df = FilteringClass(self.df).filter_by_publis_year(2022)
-        self.assertTrue(all(self.df["Publish Date (Year)"] == 2022))
+        self.df = FilteringClass(self.df).filter_by_publis_year(2005)
+        self.assertTrue(all(self.df["Publish Date (Year)"] == 2005))
 
     def test_filter_by_publis_month(self):
         """
@@ -31,12 +31,19 @@ class TestFilterData(unittest.TestCase):
         self.df = FilteringClass(self.df).filter_by_publis_month("January")
         self.assertTrue(all(self.df["Publish Date (Month)"] == "January"))
 
-    def test_filter_price(self):
+    def test_filter_pricem(self):
         """
-        Test to see if the function filter by price
+        Test to see if the function filter by price, more than
         """
-        self.df = FilteringClass(self.df).filter_price(25)
-        self.assertTrue(all(self.df["Price Starting With ($)"] > 25))
+        self.df = FilteringClass(self.df).filter_pricem(4.0)
+        self.assertTrue(all(self.df["Price Starting With ($)"] > 4.0))
+
+    def test_filter_pricem(self):
+        """
+        Test to see if the function filters by price, less than
+        """
+        self.df = FilteringClass(self.df).filter_pricel(7.0)
+        self.assertTrue(all(self.df["Price Starting With ($)"] < 7.0))
 
 
 if __name__ == "__main__":

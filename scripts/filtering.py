@@ -23,8 +23,14 @@ class FilteringClass:
         """
         return self.df[self.df["Publish Date (Month)"] == month]
 
-    def filter_price(self, price):
+    def filter_pricem(self, pricem):
         """
-        Filter books by given price
+        Filter books by given price, more than
         """
-        return self.df[self.df["Price Starting With ($)"] > price]
+        return self.df[self.df["Price Starting With ($)"] > pricem]
+    
+    def filter_pricel(self, pricel):
+        """
+        Filter books by given price, less than
+        """
+        return self.df[self.df["Price Starting With ($)"] < pricel]

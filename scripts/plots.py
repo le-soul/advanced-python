@@ -15,7 +15,7 @@ class BookAnalysis:
 
     def plot_category_distribution(self):
         """
-        Plot the distribution of books in each category
+        Plot the distribution of books in each category(filter before)
         """
         categories_list = self.df["Category"].str.split(", ").explode()
         category_counts = categories_list.value_counts()
