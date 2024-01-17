@@ -15,8 +15,8 @@ class TestBookAnalysis(unittest.TestCase):
     def setUp(self):
         data = {
             "Category": ["Fiction", "Non-Fiction", "Fiction", "Mystery"],
-            "Publish Date (Year)": [2020, 2021, 2019, 2022],
-            "Price Starting With ($)": [10, 15, 20, 25],
+            "Publish Date (Year)": [2010, 2004, 2002, 2009],
+            "Price Starting With ($)": [10.0, 12.0, 4.0, 3.0],
         }
         self.df = pd.DataFrame(data)
         self.book_analysis = BookAnalysis(self.df)
