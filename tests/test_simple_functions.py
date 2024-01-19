@@ -1,6 +1,7 @@
 """
 Script to write the test for the sum and subtract functions
 """
+
 import unittest
 from scripts.simple_functions import sum_two_nums, sub_two_nums
 
